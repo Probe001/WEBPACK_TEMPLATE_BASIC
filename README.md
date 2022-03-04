@@ -276,4 +276,34 @@ module.exports = {
 ```
 
 # Netlify 배포
-git으로 버전관리 해야함.
+
+root경로에 .gitignore 파일 생성  
+## in .gitignore
+```
+.cache
+.DS_Store // macOS 한정
+node_modules
+dist
+```
+
+이후 github에 프로젝트를 업로드한다.
+```
+git status
+git add .
+git commit -m 'Netlify 배포'
+git log
+git remote add origin 'https://~~'
+git push origin master
+```
+
+netlify에 접속하여 새 사이트를 클릭 한 뒤 설정.  
+설정 시 주의사항, build 명령어와 디렉토리가 제대로 잡혀있는지 봐야 함.
+
+# NPX, Degit
+
+```
+npx digit [Github ID]/[저장소 이름] [다운받을 폴더 이름]
+```
+npx: node js에서 사용할 수 있는 명령어. digit을 설치하지 않고 사용할 수 있게 해준다.  
+digit: github 저장소의 폴더를 현재 경로로 다운로드 하는 명령어. 해당 저장소의 버전 정보는 복사하지 않는다.  
+git clone: 해당 저장소가 가지고 있는 버전 정보까지 전부 복사하는 것.
